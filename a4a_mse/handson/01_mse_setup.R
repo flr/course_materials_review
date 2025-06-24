@@ -11,15 +11,13 @@
 rm(list = ls())
 library(FLa4a)
 library(mse)
-library(FLAssess)
 library(ggplotFL)
 library(FLBRP)
-library(doParallel)
 
 #--------------------------------------------------------------------
 # data and preprocessing
 #--------------------------------------------------------------------
-attach("../../../../data/cod.RData")
+attach("cod.RData")
 stk <- stk
 idxs <- idxs
 detach()
