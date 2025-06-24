@@ -1,0 +1,204 @@
+\documentclass{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.196, 0.196, 0.196}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.063,0.58,0.627}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.063,0.58,0.627}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.588,0.588,0.588}{#1}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0.196,0.196,0.196}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.196,0.196,0.196}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.231,0.416,0.784}{#1}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.627,0,0.314}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0.631,0.314}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.78,0.227,0.412}{#1}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\include{eu-beamer-template}
+\usepackage[english]{babel}
+\usepackage{graphbox,graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage[T1]{fontenc}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{color}
+\usepackage{booktabs}
+\fontfamily{verdana}\selectfont
+\setlength{\unitlength}{\textwidth}  % measure in textwidths
+\setbeamercolor{item}{fg=black}
+\setbeamertemplate{itemize items}[triangle] % if you want a ball
+\setbeamertemplate{itemize subitem}[triangle] % if you want a circle
+\setbeamertemplate{itemize subsubitem}[triangle] % if you want a triangle
+\newcommand{\code}[1]{{\texttt{#1}}}
+
+%************ Title & Author ***********************
+\title{Running MSE analysis with the a4a platform}
+\subtitle{Management Strategies Evaluation with FLR and a4a \\ 25-29 November 2019, Ispra, Italy, }
+\include{authors}
+\subject{Fisheries Management}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%*******************************************
+\begin{frame}
+\titlepage
+
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Modular MSE}
+
+\Large \centering What is a modular MSE and how does it help ?
+
+\vspace{1cm}
+
+(hint: think of lego !) 
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{The management cycle}
+
+\begin{center}
+\includegraphics[height=0.95\textheight]{managementCycle2}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{MSE overview}
+	
+\begin{center}
+\includegraphics[height=0.95\textheight]{mse}
+\end{center}
+	
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Generalizing and modularizing the a4a MSE}
+	
+\begin{center}
+\includegraphics[height=0.95\textheight]{msea4a2}
+\end{center}
+	
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Timeline}
+	
+\begin{center}
+\includegraphics[height=0.95\textheight]{timeline}
+\end{center}
+	
+\end{frame}
+
+
+%*******************************************
+\begin{frame}
+\frametitle{Advantages of abstraction}
+
+\footnotesize
+
+\begin{table}
+	\begin{tabular}{l|c|c}
+		\hline 
+		Module	& Data rich & Data limited \\ 
+		\hline 
+		\hline 
+		Observation model	&  catch-at-age, survey & catch length frequencies \\ 
+    & & \\
+		%\addlinespace[.2cm]
+		Estimator	& statistical catch-at-age &  $\bar{L}_{current}$ \\ 
+    & & \\
+		%\addlinespace[.2cm]
+		Parametrization	& $F_{MSY}$ &  $L_{opt}$ \\ 
+    & & \\
+		%\addlinespace[.2cm]
+		HCR	& $F_{future}=F_{MSY}$ & $\delta_{future}=\frac{\bar{L}_{current}}{L_{opt}}$ \\ 
+    & & \\
+		%\addlinespace[.2cm]
+		Technical measures	& [MPA (changes F@age)] & [MPA (changes $\bar{L}_{catch}$)] \\ 
+    & & \\
+		%\addlinespace[.2cm]
+		Implementation	& $TAC=f(C_{past}|HCR)$ & $TAC=f(C_{past} \lor E_{past}|HCR)$ \\ 
+    & & \\
+		%\addlinespace[.2cm]
+		Implementation error	& Uncertainty in catch & Uncertainty in catch \\ 
+		\hline 
+	\end{tabular} 
+	
+	\caption{Comparative example of full feedback and data limited MSEs}
+\end{table}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Comments about modular approach}
+
+\Large
+
+\begin{dinglist}{212}
+  \item Break large complex system into simpler parts,
+	\item Make it simpler to implement and share methods,
+	\item Reduces the current workload,
+	\item Improves readability, replicability, etc, 
+	\item Improves communication !
+\end{dinglist}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+	
+\Huge \centering Hands-on !
+
+\vfill
+	
+\normalsize \centering <ernesto.jardim@ec.europa.eu>
+	
+\end{frame}
+
+\end{document}

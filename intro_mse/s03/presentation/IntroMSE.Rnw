@@ -1,0 +1,280 @@
+\documentclass{beamer}
+\usepackage[english]{babel}
+\usepackage{graphbox,graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage[T1]{fontenc}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{color}
+\usepackage{booktabs}
+\fontfamily{verdana}\selectfont
+\setlength{\unitlength}{\textwidth}  % measure in textwidths
+\setbeamercolor{item}{fg=black}
+\setbeamertemplate{itemize items}[triangle] % if you want a ball
+\setbeamertemplate{itemize subitem}[triangle] % if you want a circle
+\setbeamertemplate{itemize subsubitem}[triangle] % if you want a triangle
+\newcommand{\code}[1]{{\texttt{#1}}}
+
+%************ Title & Author ***********************
+\title{Running MSE analysis with the a4a platform}
+\subtitle{Management Strategies Evaluation with FLR and a4a \\ 25-29 November 2019, Ispra, Italy, }
+\begin{document}
+\include{authors}
+
+%*******************************************
+\begin{frame}
+\titlepage
+
+<<knitr_opts2, echo=FALSE, message=FALSE, warning=FALSE>>=
+library(knitr)
+library(formatR)
+library(mse)
+library(FLa4a)
+thm = knit_theme$get("bclear") #moe, bclear
+knit_theme$set(thm)
+opts_chunk$set(dev='png', cache=TRUE, fig.align='center', warning=FALSE, message=FALSE, dev.args=list(type="cairo"), dpi=128, highlight=TRUE, background='#F2F2F2', fig.lp="fig:", fig.pos="H", width=80, tidy=TRUE, out.width='.9\\linewidth', collapse = TRUE)
+@
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Fisheries management}
+
+\begin{center}
+\includegraphics[height=0.95\textheight]{figs/fmanag}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Goals of fisheries management}
+
+\begin{itemize}
+  \item Goals
+  \begin{itemize}
+    \item Sustainable benefits from harvesting
+    \item Conserve stock(s) productivity
+    \item Minimise impacts on ecosystem
+  \end{itemize}
+    \item Requirements
+  \begin{itemize}
+    \item Set of clear management objectives
+    \item Indication of proper harvest and/or stock level
+    \item Means to monitor status
+    \item Measures to control fishing on advice
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Challenges of fisheries management}
+
+\begin{itemize}
+  \item Objectives set to be operational
+  \item Trade-offs between short and long term
+  \item Monitoring impact to ecosystem
+  \item Quantifiying uncertainty in status andn dynamics
+  \item Making decisions acknowledging risks
+\end{itemize}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{How to deal with all this? MSE}
+
+\centering{ \emph{the consequences of a range of different management strategies to determine which one will be the most appropriate to meet the operational objectives of the fishery}}
+
+\begin{itemize}
+  \item Goals
+  \begin{itemize}
+    \item Robustness against uncertainty.
+    \item Compare relative performance of alternative MPs.
+    \item Simulation-test MPs under a wide(r) range of realities.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Where does this come from?}
+
+- IWC
+
+- New Management Procedure
+
+\begin{center}
+\includegraphics[height=0.4\textheight]{figs/nmp}
+\end{center}
+
+- Revised Management Procedure
+
+- Catch Limit Algorithm (CLA)
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{IWC: Uncertainties in RMP\footnote{https://iwc.int/rmp2, https://doi.org/10.1093/icesjms/fsm035}}
+
+- Alternative population models.
+- Initial population size from 5-99% of unexploited (initial, pre-whaling).
+- Rates of productivity and chnages over time.
+- Uncertainty and bias in the estimated population size.
+- Frequencies of abundance surveys (every 1, 5 or 10 years).
+- Changes in carrying capacity (climate change, habitat degragation).
+- Errors in historic records of catches.
+- Occurrence of catastrophes simulating unpredictable (major disease).
+- Uncertainty about stock structure.
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{MSE now}
+
+- IWC Revised Management Procedure
+- South African pelagics
+- Australian fisheries
+- CCSBT
+- STECF Management Plans
+- ICES Management Plans
+- ICCAT, IOTC
+- Add your own ...
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{A model of the fishery system}
+
+\begin{center}
+\includegraphics[height=0.8\textheight]{figs/mse.png}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Six steps to MSE\footnote{Punt, A. E., Butterworth, D. S., de, Moor, C. L., De Oliveira, J. A. and Haddon, M. (2016), Management strategy evaluation: best practices. Fish Fish, 17: 303-334. doi:10.1111/faf.12104}}
+
+- Define and agree on objectives \& limits
+- Identify appropriate Management Procedures
+- Define a set of Operating Models
+- Conduct simulations
+- Summarize performance
+- Select best MP
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Define objectives \& limits}
+
+- IOTC: target=$B_{MSY}$, limit=$0.40\cdot B_{MSY}$, also $P(Green) > 60\%$, over next 20
+years.
+
+\begin{center}
+\includegraphics[height=0.4\textheight]{figs/kobe.png}
+\end{center}
+
+\begin{center}
+\includegraphics[height=0.4\textheight]{figs/kobe2.png}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Identify Management Procedures}
+
+\begin{center}
+\includegraphics[height=0.18\textheight]{figs/sample}
+\end{center}
+
+\begin{center}
+\includegraphics[height=0.25\textheight]{figs/ind.png}
+\end{center}
+
+\begin{center}
+\includegraphics[height=0.25\textheight]{figs/hcr.png}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Define Operating Models}
+
+\begin{center}
+\includegraphics[height=0.95\textheight]{figs/om.png}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Conduct simulations}
+
+\begin{center}
+\includegraphics[height=0.95\textheight]{figs/runs.png}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Summarize performance}
+
+\begin{center}
+\includegraphics[height=0.5\textheight]{figs/perf1.png}
+\end{center}
+
+\begin{center}
+\includegraphics[height=0.5\textheight]{figs/perf2.png}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Select best MP}
+
+\begin{center}
+\includegraphics[height=0.95\textheight]{figs/mp.png}
+\end{center}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{What are the advantages?}
+
+- Avoid being driven by yearly variability in SA
+- Long-term trade-offs made clear
+- Less haggling
+- No wrong best assessment
+- Default decision
+- Risk on board
+- Consistent with PA
+- Interaction across the table
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{And disadvantages?}
+
+- Results dependent on model (as usual)
+- Lengthy development (less and less so)
+- Data still essential (indeed)
+- Overly rigid (up to you)
+- Autopilot (exceptional circumstances)
+
+\end{frame}
+\end{document}

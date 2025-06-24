@@ -1,0 +1,17 @@
+
+- package captioner for tutorial not mantained anymore
+- tutorial "An overview of the FLCore classes" is incomplete, describes only the FLQuant, for which there is a specific tutorial. In general the tutorials and help pages linked here need to be finalized or updated 
+- as.data.frame qname column changed to slot?
+- metrics(nple4, Catch=catch, Landings=landings) gives an error. The metrics method always returns Rec, SSB, Catch and F; and adds others on the same list, which in this case gives an error since there's 2 "Catch" elements in the metrics list
+
+function (object, metrics, ...) 
+{
+    foo <- selectMethod("metrics", c(object = "FLS", metrics = "list"))
+    res <- foo(object = object, metrics = c(list(Rec = rec, SSB = ssb, 
+        Catch = catch, F = fbar), list(...)))
+    if (units(harvest(object)) == "HR") 
+        names(res)[[4]] <- "HR"
+    return(res)
+}
+
+
