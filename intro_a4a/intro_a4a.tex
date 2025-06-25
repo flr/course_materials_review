@@ -1,0 +1,136 @@
+\documentclass{beamer}
+\usetheme{metropolis}
+\usepackage{amsmath}
+\usepackage{pifont}
+\usepackage[T1]{fontenc}
+\usepackage[font=small,labelfont=bf]{caption}
+\fontfamily{verdana}\selectfont
+\setlength{\unitlength}{\textwidth}  % measure in textwidths
+\setbeamercolor{item}{fg=black}
+\setbeamertemplate{itemize items}[triangle] % if you want a ball
+\setbeamertemplate{itemize subitem}[triangle] % if you want a circle
+\setbeamertemplate{itemize subsubitem}[triangle] % if you want a triangle
+\newcommand{\code}[1]{{\texttt{#1}}}
+
+%************ Title & Author ***********************
+\title{The "Assessment for All" Initiative (a4a)}
+\subtitle{[subtitle]}
+\author{[author] \\ \normalfont {\scriptsize \href{mailto:jdoe@doe.com}{<[email]>}}}
+\institute{[affiliation]}
+\subject{Fisheries Management}
+\begin{document}
+	
+%*******************************************
+\begin{frame}
+	\titlepage
+	
+\end{frame}
+
+%*******************************************
+\begin{frame}
+	\frametitle{The a4a Initiative}
+
+The European Commission Joint Research Centre’s (JRC) "Assessment for All" (a4a) Initiative was launched in response to the significant increase in data collection driven by European Union investments to support the management of fisheries resources.
+
+The a4a strategy aimed to simplify and standardize the often complex methodologies used in fisheries science. It focused on developing flexible, modular frameworks that can adapt to varying levels of data availability, regional contexts, and stakeholder objectives.
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+	\frametitle{The a4a Initiative}
+
+One major step to achieve the a4a goals was the development of a stock assessment model that could be applied rapidly to a large number of stocks and for a wide range of applications: traditional stock assessment, conditioning of operating models, forecasting, or informing harvest control rules in MSE algorithms.
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{The a4a Initiative}
+
+While a4a's framework simplifies traditional assessment approaches, it faces challenges such as ensuring the quality and consistency of input data, especially in regions with limited monitoring infrastructure.
+
+\bigskip 
+
+To address this, the initiative incorporates uncertainty into its models, leveraging MCMC frameworks and other statistical tools to account for variability in data quality and ecosystem processes.
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Moderated data stock}
+
+\begin{itemize}
+	\item volume of catches in weight (which should include landings and discards)
+	\item length structure of the catches (based on selectivity studies or direct observations)
+	\item natural mortality by length
+	\item proportion of mature individuals by length
+	\item age-length key or growth model
+	\item length-weight relationship
+	\item index of abundance and its length structure, or index of biomass (the type of index is left open, it could be from a scientific survey or a commercial CPUE series);
+\end{itemize}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Multi-stage modelling approach}
+
+In ecological and population dynamics modeling, one can choose between integrated models, which estimate correlated parameters together, and multi-stage models, which separate estimation into distinct steps.
+
+\bigskip
+
+These approaches differ in complexity, data requirements, interpretability, and their ability to address uncertainties. The selection depends largely on the study objectives, available data, and the system's ecological complexity.
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Stock Assessment Process}
+
+The following slide breaks down the stock assessment process into three stages.
+
+\bigskip
+
+This breakdown is designed to explain the a4a approach, offering a general framework that outlines the sequence of analyses in the stock assessment process.
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+\frametitle{Stock Assessment Process}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Stage} & \textbf{Description} \\
+		\hline
+		Input & Preparation of catch data \\
+		& Preparation of biological data \\
+		& Conversion of length data into age data \\
+		\hline
+		Fit   & Fitting the model to data \\
+		& Inspecting diagnostics: residuals, retrospective, hindcasts \\
+		& Fitting the stock-recruitment model \\
+		\hline
+		Advice & Estimation of reference points \\
+		& Assessment of stock status \\
+		& Projections under different scenarios \\
+		& Evaluate policy proposals \\
+		\hline
+	\end{tabular}
+	\caption{Process Stages and Descriptions}
+\end{table}
+
+\end{frame}
+
+%*******************************************
+\begin{frame}
+	\frametitle{The a4a Initiative}
+	
+	\centering Questions?
+	
+\end{frame}
+
+\end{document}
