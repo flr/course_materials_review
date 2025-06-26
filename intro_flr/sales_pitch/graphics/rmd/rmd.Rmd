@@ -1,0 +1,18 @@
+---
+title: R and markdown
+author: FLR Team, EC JRC G03
+output:
+  pdf_document:
+    toc: false
+rights:  Creative Commons Share Alike 4.0
+---
+
+# Results
+
+This shows the results
+
+```{.r}
+plot(ple4)
+```
+
+which look good.
